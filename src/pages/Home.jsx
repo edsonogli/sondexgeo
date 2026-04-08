@@ -16,7 +16,7 @@ const fadeInUp = {
 export default function Home() {
   return (
     <PageTransition>
-      {/* ===== HERO ===== */}
+      {/* HERO */}
       <section className="hero">
         <ParticleField />
         <div className="hero__bg" />
@@ -64,7 +64,6 @@ export default function Home() {
             </Link>
           </motion.div>
 
-          {/* Scroll indicator */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -74,39 +73,20 @@ export default function Home() {
             <div className="hero__scroll-line" />
           </motion.div>
         </div>
-
-        <style>{`
-          .hero__scroll {
-            position: absolute;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-          }
-          .hero__scroll-line {
-            width: 1px;
-            height: 40px;
-            background: linear-gradient(to bottom, var(--color-accent), transparent);
-            animation: scrollPulse 2s ease-in-out infinite;
-          }
-          @keyframes scrollPulse {
-            0%, 100% { opacity: 0.3; transform: scaleY(0.7); }
-            50% { opacity: 1; transform: scaleY(1); }
-          }
-        `}</style>
       </section>
 
-      {/* ===== SOBRE RESUMIDO ===== */}
+      {/* SOBRE RESUMIDO */}
       <section className="section section--dark">
         <div className="container">
           <div className="about-preview">
             <motion.div {...fadeInUp} className="about-preview__text">
-              <h2 className="section__title" style={{ textAlign: 'left' }}>
+              <h2 className="section__title about-preview__title-left">
                 Parceiros estratégicos em <span className="text-accent">geotecnia</span>
               </h2>
-              <p style={{ color: 'var(--color-gray-muted)', lineHeight: 1.8, fontSize: '1.05rem', marginBottom: 'var(--space-sm)' }}>
-                A SONDEX GEO é uma empresa especializada em serviços de engenharia geotécnica, com foco em sondagens do tipo SPT e sondagens rotativas. Atuamos com excelência em investigações de subsolo, fornecendo dados técnicos precisos e confiáveis para projetos de engenharia civil, fundações, contenções e obras de infraestrutura.
+              <p className="about-preview__p">
+                A SONDEX GEO é uma empresa especializada em serviços de engenharia geotécnica, com foco em sondagens do tipo SPT e sondagens rotativas. Atuamos com excelência em investigações de subsolo, fornecendo dados técnicos precisos e confiáveis.
               </p>
-              <p style={{ color: 'var(--color-gray-muted)', lineHeight: 1.8, fontSize: '1.05rem', marginBottom: 'var(--space-md)' }}>
+              <p className="about-preview__p">
                 Mais do que executar serviços, buscamos ser parceiros estratégicos, entregando conhecimento técnico que sustenta projetos sólidos desde o início.
               </p>
               <Link to="/sobre" className="btn btn--outline">
@@ -120,71 +100,36 @@ export default function Home() {
               transition={{ duration: 0.6 }}
               className="about-preview__features"
             >
-              {[
-                { icon: ShieldCheck, title: 'Qualidade', desc: 'Rigorosos padrões de qualidade em cada projeto' },
-                { icon: Cpu, title: 'Tecnologia', desc: 'Equipamentos modernos e soluções avançadas' },
-                { icon: Users, title: 'Equipe', desc: 'Profissionais altamente qualificados' },
-              ].map((f, i) => (
-                <div key={i} className="about-feature">
-                  <f.icon size={24} className="about-feature__icon" />
-                  <div>
-                    <strong>{f.title}</strong>
-                    <p>{f.desc}</p>
-                  </div>
+              <div className="about-feature">
+                <ShieldCheck size={24} className="about-feature__icon" />
+                <div>
+                  <strong>Qualidade</strong>
+                  <p>Rigorosos padrões de qualidade em cada projeto</p>
                 </div>
-              ))}
+              </div>
+              <div className="about-feature">
+                <Cpu size={24} className="about-feature__icon" />
+                <div>
+                  <strong>Tecnologia</strong>
+                  <p>Equipamentos modernos e soluções avançadas</p>
+                </div>
+              </div>
+              <div className="about-feature">
+                <Users size={24} className="about-feature__icon" />
+                <div>
+                  <strong>Equipe</strong>
+                  <p>Profissionais altamente qualificados</p>
+                </div>
+              </div>
             </motion.div>
           </div>
         </div>
-
-        <style>{`
-          .about-preview {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: var(--space-xl);
-            align-items: center;
-          }
-          .about-preview__features {
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-sm);
-          }
-          .about-feature {
-            display: flex;
-            gap: 1rem;
-            padding: 1.25rem;
-            background: var(--color-bg-secondary);
-            border-radius: var(--radius-md);
-            border: 1px solid rgba(255,255,255,0.04);
-          }
-          .about-feature__icon {
-            color: var(--color-accent);
-            flex-shrink: 0;
-            margin-top: 2px;
-          }
-          .about-feature strong {
-            font-size: 1rem;
-            display: block;
-            margin-bottom: 0.15rem;
-          }
-          .about-feature p {
-            color: var(--color-gray-muted);
-            font-size: 0.85rem;
-            line-height: 1.5;
-          }
-          @media (max-width: 768px) {
-            .about-preview {
-              grid-template-columns: 1fr;
-              gap: var(--space-lg);
-            }
-          }
-        `}</style>
       </section>
 
-      {/* ===== SERVIÇOS ===== */}
+      {/* SERVIÇOS */}
       <ServicePreview />
 
-      {/* ===== NÚMEROS ===== */}
+      {/* NÚMEROS */}
       <section className="section section--dark">
         <div className="container">
           <motion.h2 {...fadeInUp} className="section__title">
@@ -215,9 +160,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== CTA ===== */}
+      {/* CTA */}
       <section className="section section--alt cta-section">
-        <div className="container" style={{ textAlign: 'center' }}>
+        <div className="container cta-container">
           <motion.div {...fadeInUp}>
             <h2 className="section__title">
               Precisa de um <span className="text-accent">laudo técnico</span>?
@@ -225,7 +170,7 @@ export default function Home() {
             <p className="section__subtitle">
               Entre em contato com nossa equipe e solicite um orçamento sem compromisso.
             </p>
-            <Link to="/contato" className="btn btn--primary" style={{ marginTop: '1.5rem' }}>
+            <Link to="/contato" className="btn btn--primary cta-btn">
               Solicitar Orçamento <ArrowRight size={18} />
             </Link>
           </motion.div>

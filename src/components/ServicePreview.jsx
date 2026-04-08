@@ -15,9 +15,7 @@ const services = [
 
 const containerVariants = {
   hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.07 },
-  },
+  visible: { transition: { staggerChildren: 0.07 } },
 }
 
 const itemVariants = {
@@ -62,52 +60,13 @@ export default function ServicePreview() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
-          style={{ textAlign: 'center', marginTop: 'var(--space-lg)' }}
+          className="services-cta"
         >
           <Link to="/servicos" className="btn btn--outline">
             Ver todos os serviços <ArrowRight size={18} />
           </Link>
         </motion.div>
       </div>
-
-      <style>{`
-        .services-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-          gap: var(--space-sm);
-        }
-        .service-card {
-          display: flex;
-          gap: 1rem;
-          padding: 1.25rem;
-          background: var(--color-bg-dark);
-          border-radius: var(--radius-md);
-          border: 1px solid rgba(255,255,255,0.04);
-          transition: all 0.3s;
-          cursor: default;
-        }
-        .service-card:hover {
-          border-color: rgba(157,20,5,0.3);
-          background: rgba(49, 51, 53, 0.6);
-        }
-        .service-card__icon {
-          color: var(--color-accent);
-          flex-shrink: 0;
-          display: flex;
-          align-items: flex-start;
-          padding-top: 2px;
-        }
-        .service-card__title {
-          font-size: 1rem;
-          font-weight: 600;
-          margin-bottom: 0.25rem;
-        }
-        .service-card__desc {
-          color: var(--color-gray-muted);
-          font-size: 0.85rem;
-          line-height: 1.5;
-        }
-      `}</style>
     </section>
   )
 }
