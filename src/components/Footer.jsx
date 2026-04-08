@@ -1,5 +1,13 @@
 import { Link } from 'react-router-dom'
-import { Phone, Mail, Instagram, MapPin, ChevronUp } from 'lucide-react'
+import { Phone, Mail, MapPin, ChevronUp } from 'lucide-react'
+
+const InstagramIcon = ({ size = 20 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+  </svg>
+)
 
 export default function Footer() {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -8,7 +16,6 @@ export default function Footer() {
     <footer className="footer">
       <div className="container">
         <div className="footer__grid">
-          {/* Coluna 1 - Logo */}
           <div className="footer__col">
             <div className="footer__logo-row">
               <img src="/logo-icon.png" alt="Sondex Geo" className="footer__logo-img" />
@@ -21,12 +28,11 @@ export default function Footer() {
             </p>
             <div className="footer__social">
               <a href="https://instagram.com/sondex.geo" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                <Instagram size={20} />
+                <InstagramIcon size={20} />
               </a>
             </div>
           </div>
 
-          {/* Coluna 2 - Links */}
           <div className="footer__col">
             <h4 className="footer__heading">Navegação</h4>
             <nav className="footer__links">
@@ -36,14 +42,11 @@ export default function Footer() {
                 { path: '/servicos', label: 'Serviços' },
                 { path: '/contato', label: 'Contato' },
               ].map(link => (
-                <Link key={link.path} to={link.path} className="footer__link">
-                  {link.label}
-                </Link>
+                <Link key={link.path} to={link.path} className="footer__link">{link.label}</Link>
               ))}
             </nav>
           </div>
 
-          {/* Coluna 3 - Serviços */}
           <div className="footer__col">
             <h4 className="footer__heading">Serviços</h4>
             <nav className="footer__links">
@@ -53,13 +56,12 @@ export default function Footer() {
             </nav>
           </div>
 
-          {/* Coluna 4 - Contato */}
           <div className="footer__col">
             <h4 className="footer__heading">Contato</h4>
             <div className="footer__contact">
               <a href="tel:+5561996105699"><Phone size={16} /> (61) 99610-5699</a>
               <a href="mailto:sondex.eng@gmail.com"><Mail size={16} /> sondex.eng@gmail.com</a>
-              <a href="https://instagram.com/sondex.geo" target="_blank" rel="noopener noreferrer"><Instagram size={16} /> @sondex.geo</a>
+              <a href="https://instagram.com/sondex.geo" target="_blank" rel="noopener noreferrer"><InstagramIcon size={16} /> @sondex.geo</a>
               <span><MapPin size={16} /> Brasília - DF / Goiânia - GO</span>
             </div>
           </div>
