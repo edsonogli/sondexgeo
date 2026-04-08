@@ -18,15 +18,15 @@ export default function ParticleField() {
     window.addEventListener('resize', resize)
 
     // Create particles
-    const count = Math.min(60, Math.floor(window.innerWidth / 25))
+    const count = Math.min(90, Math.floor(window.innerWidth / 18))
     for (let i = 0; i < count; i++) {
       particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.3,
-        vy: (Math.random() - 0.5) * 0.3,
-        r: Math.random() * 2 + 0.5,
-        opacity: Math.random() * 0.4 + 0.1,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4,
+        r: Math.random() * 3 + 1,
+        opacity: Math.random() * 0.5 + 0.2,
       })
     }
 
@@ -39,12 +39,12 @@ export default function ParticleField() {
           const dx = particles[i].x - particles[j].x
           const dy = particles[i].y - particles[j].y
           const dist = Math.sqrt(dx * dx + dy * dy)
-          if (dist < 150) {
+          if (dist < 200) {
             ctx.beginPath()
             ctx.moveTo(particles[i].x, particles[i].y)
             ctx.lineTo(particles[j].x, particles[j].y)
-            ctx.strokeStyle = `rgba(157, 20, 5, ${0.08 * (1 - dist / 150)})`
-            ctx.lineWidth = 0.5
+            ctx.strokeStyle = `rgba(157, 20, 5, ${0.15 * (1 - dist / 200)})`
+            ctx.lineWidth = 0.8
             ctx.stroke()
           }
         }

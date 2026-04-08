@@ -1,6 +1,7 @@
 import Header from './Header'
 import Footer from './Footer'
 import WhatsAppButton from './WhatsAppButton'
+import CookieBanner from './CookieBanner'
 
 export default function Layout({ children }) {
   return (
@@ -11,6 +12,7 @@ export default function Layout({ children }) {
       </main>
       <Footer />
       <WhatsAppButton />
+      <CookieBanner />
     </>
   )
 }
