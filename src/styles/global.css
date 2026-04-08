@@ -237,6 +237,70 @@ img { max-width: 100%; height: auto; display: block; }
 ::-webkit-scrollbar-thumb:hover { background: var(--color-accent); }
 ::selection { background: rgba(157,20,5,0.4); color: var(--color-white); }
 
+/* ===== WHATSAPP FLOAT ===== */
+.whatsapp-float {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25D366;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+  transition: all 0.3s;
+  text-decoration: none;
+}
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 24px rgba(37, 211, 102, 0.5);
+}
+.whatsapp-float__tooltip {
+  position: absolute;
+  right: 68px;
+  background: var(--color-bg-secondary);
+  color: var(--color-white);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+.whatsapp-float:hover .whatsapp-float__tooltip { opacity: 1; }
+
+/* ===== RESPONSIVE MOBILE ===== */
+@media (max-width: 768px) {
+  .hero__title { font-size: clamp(2rem, 8vw, 3rem); }
+  .hero__subtitle { font-size: 1rem; }
+  .hero__actions { flex-direction: column; align-items: center; }
+  .hero__actions .btn { width: 100%; justify-content: center; }
+  .section { padding: var(--space-xl) 0; }
+  .section__title { font-size: clamp(1.5rem, 5vw, 2rem); }
+  .cards-grid { grid-template-columns: 1fr; }
+  .services-grid { grid-template-columns: 1fr; }
+  .services-full-grid { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .about-text__heading { font-size: 1.5rem; }
+  .page-hero { padding-top: calc(var(--header-height) + var(--space-xl)); }
+  .page-hero__title { font-size: clamp(1.75rem, 6vw, 2.5rem); }
+  .contact-form { padding: var(--space-md); }
+  .whatsapp-float { bottom: 1rem; right: 1rem; width: 50px; height: 50px; }
+}
+
+@media (max-width: 480px) {
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+  .stat__number { font-size: 1.75rem; }
+  .infra-grid { grid-template-columns: 1fr; }
+  .pillars-grid { grid-template-columns: 1fr; }
+  .locations-grid { grid-template-columns: 1fr; }
+}
+
 /* ===== HOME EXTRAS ===== */
 .about-preview__title-left { text-align: left; }
 .about-preview__p { color: var(--color-gray-muted); font-size: 1.05rem; line-height: 1.8; margin-bottom: var(--space-sm); }
